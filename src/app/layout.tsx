@@ -5,8 +5,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Admin Dashboard",
-  description: "Professional admin dashboard with Google Sign-In",
+  title: "Music Katta Admin Dashboard",
+  description: "Professional admin dashboard with vibrant design and animations",
 };
 
 export default function RootLayout({
@@ -15,8 +15,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className="scroll-smooth">
+      <body className={`${inter.className} min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800`}>
+        {children}
+      </body>
     </html>
   );
 }

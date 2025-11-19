@@ -32,6 +32,13 @@
     --ring: 215 20.2% 65.1%;
     
     --radius: 0.5rem;
+    
+    /* Vibrant color palette */
+    --vibrant-primary: 262 83% 58%;
+    --vibrant-secondary: 142 76% 36%;
+    --vibrant-accent: 346.8 77.2% 49.8%;
+    --vibrant-warning: 24.6 95% 53.1%;
+    --vibrant-info: 172 64% 45%;
   }
   
   .dark {
@@ -65,6 +72,13 @@
     --ring: 216 34% 17%;
     
     --radius: 0.5rem;
+    
+    /* Dark mode vibrant colors */
+    --vibrant-primary: 263 70% 65%;
+    --vibrant-secondary: 142 72% 45%;
+    --vibrant-accent: 350 89% 60%;
+    --vibrant-warning: 25 95% 60%;
+    --vibrant-info: 173 77% 50%;
   }
 }
 
@@ -123,4 +137,197 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background-color: hsl(var(--primary) / 0.5);
+}
+
+/* Custom scrollbar for playlist */
+.scrollbar-thin {
+  scrollbar-width: thin;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: #1F2937;
+  border-radius: 4px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: #4B5563;
+  border-radius: 4px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: #6B7280;
+}
+
+/* Animations and keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Animation classes */
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.3s ease-out;
+}
+
+.animate-pulse-slow {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-bounce {
+  animation: bounce 1s infinite;
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradientShift 3s ease infinite;
+}
+
+/* Enhanced card styles */
+.card-glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+  border-radius: var(--radius);
+}
+
+.dark .card-glass {
+  background: rgba(30, 30, 40, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Gradient backgrounds */
+.bg-gradient-vibrant {
+  background: linear-gradient(135deg, 
+    hsl(var(--vibrant-primary)), 
+    hsl(var(--vibrant-secondary)), 
+    hsl(var(--vibrant-accent)));
+}
+
+.bg-gradient-animated {
+  background: linear-gradient(-45deg, 
+    hsl(var(--vibrant-primary)), 
+    hsl(var(--vibrant-secondary)), 
+    hsl(var(--vibrant-warning)), 
+    hsl(var(--vibrant-info)));
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}
+
+/* Hover effects */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.hover-scale {
+  transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.03);
+}
+
+/* Button enhancements */
+.btn-vibrant {
+  background: linear-gradient(135deg, 
+    hsl(var(--vibrant-primary)), 
+    hsl(var(--vibrant-secondary)));
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 51, 153, 0.3);
+}
+
+.btn-vibrant:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 51, 153, 0.4);
+}
+
+.btn-vibrant:active {
+  transform: translateY(0);
+}
+
+/* Input enhancements */
+.input-enhanced {
+  border: 2px solid transparent;
+  background: rgba(240, 240, 240, 0.7);
+  transition: all 0.3s ease;
+}
+
+.input-enhanced:focus {
+  border-color: hsl(var(--vibrant-primary));
+  background: white;
+  box-shadow: 0 0 0 3px rgba(102, 51, 153, 0.2);
+}
+
+.dark .input-enhanced {
+  background: rgba(50, 50, 60, 0.7);
+}
+
+.dark .input-enhanced:focus {
+  background: rgba(30, 30, 40, 0.9);
 }
